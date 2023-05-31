@@ -13,12 +13,12 @@ variable "ssh_keyname" {}
 #---------------------------------------------------------
 variable "vpc-name" {
   description = "Provide the name of your VPC"
-  default = "vpc-space-test"
+  default = "vpc-agorum"
 }
 
 # variable "resource_group" {
 #   description = "The Ressource Roup must be defined in IBM Cloud IAM"
-#   default = "resource-vpc-test-space"
+#   default = "resource-vpc-agorum"
 # }
 
 #---------------------------------------------------------
@@ -41,16 +41,6 @@ variable "zone1" {
   default = "eu-de-1"
 }
 
-variable "zone2" {
-    description = "use  eu-de-2 or us-south-3"
-  default = "eu-de-2"
-}
-
-variable "zone3" {
-    description = "use  eu-de-3 or us-south-3"
-  default = "eu-de-3"
-}
-
 #---------------------------------------------------------
 ## DEFINE CIDR Blocks 172.21.0.0/21 for VPC in Regions
 #---------------------------------------------------------
@@ -59,27 +49,11 @@ variable "vpc-address-prefix-1" {
   default = "172.21.0.0/24"
 }
 
-variable "vpc-address-prefix-2" {
-  description = "The VPC address prefix"
-  default = "172.21.3.0/24"
-}
-variable "vpc-address-prefix-3" {
-  description = "The VPC address prefix"
-  default = "172.21.6.0/24"
-}
-
-
 #---------------------------------------------------------
 ## DEFINE subnets for server in each zone
 #---------------------------------------------------------
 variable "server-subnet-zone-1" {
   default = "172.21.0.0/24"
-}
-variable "server-subnet-zone-2" {
-  default = "172.21.3.0/24"
-}
-variable "server-subnet-zone-3" {
-  default = "172.21.6.0/24"
 }
 
 #---------------------------------------------------------
@@ -94,8 +68,8 @@ variable "server-subnet-zone-3" {
 ## "ibm-debian-9-9-minimal-amd64-2"
 #---------------------------------------------------------
 variable "select_image_name" {
-  description = "use  ibm-ubuntu-20-04-2-minimal-amd64-1 or select: $ibmcloud is images"
-  default = "ibm-ubuntu-20-04-2-minimal-amd64-1"
+  description = "use  ibm-debian-11-3-minimal-amd64-4  or select: $ibmcloud is images"
+  default = "ibm-debian-11-3-minimal-amd64-4"
 }
 
 #---------------------------------------------------------
@@ -116,37 +90,15 @@ variable "select_image_name" {
 ##   
 #---------------------------------------------------------
 variable "profile-server" {
-  description = "use cx2-2x4 or select: $ibmcloud is instance-profiles"
-  default = "cx2-2x4"
+  description = "use mx2-2x16 or select: $ibmcloud is instance-profiles"
+  default = "mx2-2x16"
 }
 
 variable "server-name" {
-  default = "servername"
+  default = "agorum"
 }
 
 variable "server-count" {
   default = 1
 }
 
-#---------------------------------------------------------
-## Create VPN Connection 
-#---------------------------------------------------------
-#variable "vpn_gw"{
-#  default = "vpngw1"
-#}
-
-#variable "vpn_gw_con"{
-#  default = "vpngwcon1"
-#}
-
-#variable "peer_adress"{
-#  default = "1.2.3.4"
-#}
-
-#variable "preshared_key" {
-#  default = "DEADBEEF"
-#}
-
-#variable "peer_ipv4_cidr_block"{
-#  default = ["192.168.178.0/24"]
-#}
