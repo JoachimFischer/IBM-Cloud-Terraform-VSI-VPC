@@ -9,11 +9,20 @@ data "ibm_is_ssh_key" "sshkey" {
 # Create instances in each subnet in zone1
 #---------------------------------------------------------
 
+resource "ibm_is_volume" "server-volume-zone1" {
+  name    = "${var.server-name}-${var.zone1}-data-volume"
+  profile = "5iops-tier"
+  capacity = 100
+  zone    = var.zone1
+  encryption_type = "provider_managed"
+}
+
 resource "ibm_is_instance" "server-zone1" {
   name    = "${var.server-name}-${var.zone1}"
   image   = data.ibm_is_image.select_image.id
   profile = var.profile-server
-
+  volumes = ibm_is_volume.server-volume-zone1.id
+	
   primary_network_interface {
     subnet = ibm_is_subnet.server-subnet-zone1.id
     security_groups = [ibm_is_security_group.server-securitygroup.id]
