@@ -6,7 +6,7 @@ data "ibm_is_ssh_key" "sshkey" {
 }
 
 #---------------------------------------------------------
-# Create instances in each subnet in zone 1
+# Create instances in each subnet in zone1
 #---------------------------------------------------------
 
 resource "ibm_is_instance" "server-zone1" {
