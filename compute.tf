@@ -14,7 +14,6 @@ resource "ibm_is_volume" "server-volume-zone1" {
   profile = "5iops-tier"
   capacity = 100
   zone    = var.zone1
-  encryption_type = "provider_managed"
 }
 
 resource "ibm_is_instance" "server-zone1" {
