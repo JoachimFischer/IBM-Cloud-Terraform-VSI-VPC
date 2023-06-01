@@ -16,10 +16,10 @@ variable "vpc-name" {
   default = "vpc-agorum"
 }
 
-# variable "resource_group" {
-#   description = "The Ressource Roup must be defined in IBM Cloud IAM"
-#   default = "resource-vpc-agorum"
-# }
+ variable "resource_group" {
+   description = "The Ressource Roup must be defined in IBM Cloud IAM"
+   default = "default"
+}
 
 #---------------------------------------------------------
 ## DEFINE Region and Zones in US-South Dallas or
