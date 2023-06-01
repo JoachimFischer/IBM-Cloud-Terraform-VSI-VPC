@@ -18,17 +18,7 @@ resource "ibm_is_instance" "server-zone1" {
     subnet = ibm_is_subnet.server-subnet-zone1.id
     security_groups = [ibm_is_security_group.server-securitygroup.id]
   }
-	
-  volume_attachments {
-     delete_volume_on_instance_delete = true
-     name                             = "data-volume"
-     volume_prototype {
-          iops = 5000
-          profile = "general-purpose"
-          capacity = 200
-     }
-  }
-	  
+  
   vpc = ibm_is_vpc.vpc1.id
   zone = var.zone1
   keys = [data.ibm_is_ssh_key.sshkey.id]
@@ -36,6 +26,24 @@ resource "ibm_is_instance" "server-zone1" {
 	create = "20m"
 	update = "20m"
 	delete = "20m"
+  }
+}
+
+resource "ibm_is_instance_volume_attachment" "server-zone1" {
+  instance = ibm_is_instance.server-zone1.id
+
+  name                                = "data-vol-att-1"
+  iops                                = 5000
+  capacity                            = 200
+  delete_volume_on_attachment_delete  = true
+  delete_volume_on_instance_delete    = true
+  volume_name                         = "data-vol-att-1"
+
+  //User can configure timeouts
+  timeouts {
+    create = "15m"
+    update = "15m"
+    delete = "15m"
   }
 }
 
