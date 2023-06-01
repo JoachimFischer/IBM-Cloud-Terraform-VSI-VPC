@@ -31,9 +31,8 @@ resource "ibm_is_instance" "server-zone1" {
 
 resource "ibm_is_instance_volume_attachment" "server-zone1" {
   instance = ibm_is_instance.server-zone1.id
-
   name                                = "data-vol-att-1"
-  iops                                = 5000
+  profile			      = "5iops-tier"
   capacity                            = 200
   delete_volume_on_attachment_delete  = true
   delete_volume_on_instance_delete    = true
