@@ -1,2 +1,2 @@
-# IBM-Cloud-Terraform-Agorum
-Terraform for setup Agorum infrastructure in VPC
+# IBM-Cloud-Terraform-VSI-VPC
+Terraform for setup infrastructure in VPC
