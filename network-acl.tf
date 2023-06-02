@@ -17,9 +17,9 @@ resource "ibm_is_network_acl_rule" "is-vpc-acl-out-1" {
     direction   = "outbound"
   }
 
- resource "ibm_is_network_acl_rule" "is-vpc-acl-in-1" {
+ resource "ibm_is_network_acl_rule" "is-vpc-acl-in-2" {
  network_acl    = ibm_is_network_acl.is-vpc-acl.id
-    name        = "inbound-1"
+    name        = "inbound-2"
     action      = "allow"
     source      = "0.0.0.0/0"
     destination = var.server-subnet-zone-1
@@ -30,9 +30,35 @@ resource "ibm_is_network_acl_rule" "is-vpc-acl-out-1" {
       }
   }
 
- resource "ibm_is_network_acl_rule" "is-vpc-acl-in-2" {
+resource "ibm_is_network_acl_rule" "is-vpc-acl-in-3" {
  network_acl    = ibm_is_network_acl.is-vpc-acl.id
-    name        = "inbound-2"
+    name        = "inbound-3"
+    action      = "allow"
+    source      = "0.0.0.0/0"
+    destination = var.server-subnet-zone-1
+    direction   = "inbound"
+    tcp {
+        port_max = 443
+        port_min = 443
+      }
+  }
+
+resource "ibm_is_network_acl_rule" "is-vpc-acl-in-4" {
+ network_acl    = ibm_is_network_acl.is-vpc-acl.id
+    name        = "inbound-4"
+    action      = "allow"
+    source      = "0.0.0.0/0"
+    destination = var.server-subnet-zone-1
+    direction   = "inbound"
+    tcp {
+        port_max = 80
+        port_min = 80
+      }
+  }
+
+ resource "ibm_is_network_acl_rule" "is-vpc-acl-in-5" {
+ network_acl    = ibm_is_network_acl.is-vpc-acl.id
+    name        = "inbound-5"
     action      = "allow"
     source      = "0.0.0.0/0"
     destination = var.server-subnet-zone-1
