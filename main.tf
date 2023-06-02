@@ -40,6 +40,6 @@ resource "ibm_is_subnet" "server-subnet-zone1" {
   vpc             = ibm_is_vpc.vpc1.id
   zone            = var.zone1
   ipv4_cidr_block = var.server-subnet-zone-1
-  public_gateway  = ibm_is_public_gateway.pubgw-zone1.id
+#  public_gateway  = ibm_is_public_gateway.pubgw-zone1.id
 }
 
