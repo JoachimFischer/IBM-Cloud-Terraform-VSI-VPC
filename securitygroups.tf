@@ -6,7 +6,7 @@
 #   vpc  = ibm_is_vpc.vpc1.id
 # }
 
-resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-tcp" {
+resource "ibm_is_security_group_rule" "sg-rule-in-tcp" {
   group     = ibm_is_vpc.vpc1.default_security_group.id
   direction  = "inbound"
   ip_version = "ipv4"
@@ -17,7 +17,7 @@ resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-tcp" {
   }
 }
 
-resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-tcp1" {
+resource "ibm_is_security_group_rule" "sg-rule-in-tcp1" {
   group     = ibm_is_vpc.vpc1.default_security_group.id
   direction  = "inbound"
   ip_version = "ipv4"
@@ -28,7 +28,7 @@ resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-tcp1" {
   }
 }
 
-resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-tcp2" {
+resource "ibm_is_security_group_rule" "sg-rule-in-tcp2" {
   group     = ibm_is_vpc.vpc1.default_security_group.id
   direction  = "inbound"
   ip_version = "ipv4"
@@ -39,7 +39,7 @@ resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-tcp2" {
   }
 }
 
-  resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-icmp" {
+  resource "ibm_is_security_group_rule" "sg-rule-in-icmp" {
   group     = ibm_is_vpc.vpc1.default_security_group.id
   direction  = "inbound"
   ip_version = "ipv4"
@@ -49,7 +49,7 @@ resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-tcp2" {
   }
 }
 
-resource "ibm_is_security_group_rule" "server-securitygroup-rule-out-all" {
+resource "ibm_is_security_group_rule" "sg-rule-out-all" {
   group     = ibm_is_vpc.vpc1.default_security_group.id
   direction  = "outbound"
   ip_version = "ipv4"
