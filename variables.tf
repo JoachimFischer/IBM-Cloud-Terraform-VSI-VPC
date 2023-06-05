@@ -70,7 +70,7 @@ variable "server-subnet-zone-1" {
 #---------------------------------------------------------
 variable "select_image_name" {
   description = "use  ibm-debian-11-3-minimal-amd64-4  or select: $ibmcloud is images"
-  default = "ibm-ubuntu-22-04-1-minimal-amd64-4"
+  default = "ibm-debian-11-3-minimal-amd64-4"
 }
 
 #---------------------------------------------------------
