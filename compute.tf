@@ -20,7 +20,7 @@ resource "ibm_is_instance" "server-zone1" {
 
   primary_network_interface {
     subnet = ibm_is_subnet.server-subnet-zone1.id
-    security_groups = [ibm_is_security_group.server-securitygroup.id]
+    security_groups = [ibm_is_vpc.vpc1.default_security_group.id]
   }
   
   vpc = ibm_is_vpc.vpc1.id

@@ -50,7 +50,7 @@ resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-tcp2" {
 }
 
 resource "ibm_is_security_group_rule" "server-securitygroup-rule-out-all" {
-  group      = ibm_is_security_group.server-securitygroup.id
+  group     = ibm_is_vpc.vpc1.default_security_group.id
   direction  = "outbound"
   ip_version = "ipv4"
   remote     = "0.0.0.0/0"
