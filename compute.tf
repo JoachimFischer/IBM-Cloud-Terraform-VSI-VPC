@@ -5,6 +5,10 @@ data "ibm_is_ssh_key" "sshkey" {
   name = var.ssh_keyname
 }
 
+data "ibm_is_ssh_key" "sshkey2" {
+  name = var.ssh_keyname2
+}
+
 #---------------------------------------------------------
 # Create instances in each subnet in zone1
 #---------------------------------------------------------
@@ -21,7 +25,7 @@ resource "ibm_is_instance" "server-zone1" {
   
   vpc = ibm_is_vpc.vpc1.id
   zone = var.zone1
-  keys = [data.ibm_is_ssh_key.sshkey.id]
+  keys = [data.ibm_is_ssh_key.sshkey.id, data.ibm_is_ssh_key.sshkey2.id]
   timeouts {
 	create = "20m"
 	update = "20m"

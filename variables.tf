@@ -7,6 +7,7 @@ variable "ibmcloud_api_key" {}
 ## DEFINE sshkey to be used for compute instances
 #---------------------------------------------------------
 variable "ssh_keyname" {}
+variable "ssh_keyname2" {}
 
 #---------------------------------------------------------
 ## DEFINE VPC name and available Ressource Group (IAM)
