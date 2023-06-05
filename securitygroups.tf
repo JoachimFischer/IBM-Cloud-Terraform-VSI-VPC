@@ -17,6 +17,28 @@ resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-tcp" {
   }
 }
 
+resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-tcp1" {
+  group      = ibm_is_security_group.server-securitygroup.id
+  direction  = "inbound"
+  ip_version = "ipv4"
+  remote     = "0.0.0.0/0"
+  tcp {
+      port_min = 443
+      port_max = 443
+  }
+}
+
+resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-tcp2" {
+  group      = ibm_is_security_group.server-securitygroup.id
+  direction  = "inbound"
+  ip_version = "ipv4"
+  remote     = "0.0.0.0/0"
+  tcp {
+      port_min = 80
+      port_max = 80
+  }
+}
+
   resource "ibm_is_security_group_rule" "server-securitygroup-rule-in-icmp" {
   group      = ibm_is_security_group.server-securitygroup.id
   direction  = "inbound"

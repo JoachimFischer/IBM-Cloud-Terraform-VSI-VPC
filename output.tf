@@ -5,9 +5,9 @@
 #--------------------------------------
 #  Output of IPs from public gateways
 #--------------------------------------
-# output "pgw_ip_addresses" {
-#   value = ibm_is_public_gateway.pubgw-zone1.floating_ip.address
-# }
+ output "pgw_ip_addresses" {
+   value = ibm_is_public_gateway.pubgw-zone1.floating_ip.address
+ }
 
 #--------------------------------------
 # Output of Floating IPs
